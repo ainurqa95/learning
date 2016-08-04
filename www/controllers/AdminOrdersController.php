@@ -65,18 +65,7 @@
    		 
    		 	if(!$error){
 
-			Orders::UpdateOrder($UsersData,$idorders); // добавляем в бд  товар и запоминем вго новый id
-			/*if($last_insert){// если запись добавлена
-					if(is_uploaded_file($_FILES["image"]["tmp_name"])){// загрузилось ли через форму изображение
-
-						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT']. "/uploads/images");
-
-					}
-
-
-
-				}
-				*/
+			Orders::UpdateOrder($UsersData,$idorders); // добавляем в бд  s
 				header("Location: /admin/orders/ "); 
 
 			}
@@ -93,52 +82,25 @@
 
 
 		}
-		public function actionCreate ()
+		public function actionView ($idorders)
 		{	
 	   
    	     // проверка доступа
-		
-   	
-   		 
 		 
         self::CheckAdmin();
 
         $categoryList = Category::getCategoryList();
 		$SecondCategoryList = Category::getSecondCategoryList(); // категории для выпадающего списка
-		if(isset($_POST['submit'])){
-				$fields = array("name" => "Наименование товара", "price" => "Цена товара" , "brand" => "Брэнд", "description" => "Полное описание", "avaialabilty" => "Доступность товара",  "is_new" => "Новый товар", "is_recommended" => "Рекомендуемый товар" , "idsecond_cat" => "Вторая категория","image" => "изображение", );
-   				$error = false;
-   				 $errors = array();
-   				 $UsersData =  array();
-   		
-
-			User::CheckIsFillFields ($_POST,$UsersData,$errors, $error, $fields);
-   		 
-   		 	if(!$error){
-			$last_insert = Products::AddProduct($UsersData); // добавляем в бд  товар и запоминем вго новый id
-			/*if($last_insert){// если запись добавлена
-					if(is_uploaded_file($_FILES["image"]["tmp_name"])){// загрузилось ли через форму изображение
-
-						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT']. "/uploads/images");
-
-					}
-
-
-
-				}
-				*/
-				header("Location: /admin/products/ "); 
-
-			}
+		
+			
 
 
 
 
+		
 
-		}
 
-
-		require_once(ROOT.'/views/admin_products/create.php');
+		require_once(ROOT.'/views/admin_orders/view.php');
 		
 		return true;
 
