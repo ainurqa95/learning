@@ -89,8 +89,7 @@
 		 
         self::CheckAdmin();
 
-        $categoryList = Category::getCategoryList();
-		$SecondCategoryList = Category::getSecondCategoryList(); // категории для выпадающего списка
+        $order_to_view = Orders::getOrderById($idorders);
 		
 			
 
