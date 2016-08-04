@@ -90,8 +90,9 @@
         self::CheckAdmin();
 
         $order_to_view = Orders::getOrderById($idorders);
-		
-			
+		$statues = StatusTable::find();	
+		$ship_method = ShipMethodTable::find(); // способы доставки для селекта во вьюхе
+		$payment_method = PaymentMethodTable::find();
 
 
 

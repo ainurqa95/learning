@@ -441,13 +441,16 @@ header nav > ul > li ul li a{
 #check-accordion  input[type='text'] {width:213px; border-radius: 0px; box-shadow: none; outline: 0px; margin-bottom: 22px; }
 
 .rounded {
+	margin-left: 30px;
+	float:left;
+width: 42%;
 counter-reset: li; 
 list-style: none; 
 font: 14px "Trebuchet MS", "Lucida Sans";
 padding: 0;
 text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
-.rounded a {
+.rounded p {
 position: relative;
 display: block;
 padding: .4em .4em .4em 2em;
@@ -458,13 +461,13 @@ text-decoration: none;
 border-radius: .3em;
 transition: all .3s ease-out;
 }
-.rounded a:hover {
+.rounded p:hover {
 background: #E9E4E0;
 }
-.rounded a:hover:before {
+.rounded p:hover:before {
 transform: rotate(360deg);
 }
-.rounded a:before {
+.rounded p:before {
 content: counter(li);
 counter-increment: li;
 position: absolute;
