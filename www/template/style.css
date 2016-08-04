@@ -440,6 +440,55 @@ header nav > ul > li ul li a{
 #check-accordion .register label { margin-top: -23px; }
 #check-accordion  input[type='text'] {width:213px; border-radius: 0px; box-shadow: none; outline: 0px; margin-bottom: 22px; }
 
+.rounded {
+	margin-left: 30px;
+	margin-bottom: 80px;
+	float:left;
+width: 42%;
+
+counter-reset: li; 
+list-style: none; 
+font: 14px "Trebuchet MS", "Lucida Sans";
+padding: 0;
+text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.rounded p {
+position: relative;
+display: block;
+padding: .4em .4em .4em 2em;
+margin: .5em 0;
+background: #DAD2CA;
+color: #444;
+text-decoration: none;
+border-radius: .3em;
+transition: all .3s ease-out;
+}
+.rounded p:hover {
+background: #E9E4E0;
+}
+.rounded p:hover:before {
+transform: rotate(360deg);
+}
+.rounded p:before {
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -1.3em;
+top: 50%;
+margin-top: -1.3em;
+background: #8FD4C1;
+height: 2em;
+width: 2em;
+line-height: 2em;
+border: .3em solid white;
+text-align: center;
+font-weight: bold;
+border-radius: 2em;
+transition: all .3s ease-out;
+}
+
+
+
 .billing-form { padding: 0px !important;;width: 1125px;margin-left: 20px; background: none; border: 0px; }
 .billing-form label { display: block !important;   margin-bottom: 10px !important; margin-top: 0px !important;;}
 

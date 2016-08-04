@@ -1,7 +1,21 @@
 <?php
-    include_once(ROOT.'/layout/header.php');
+      include_once(ROOT.'/layout/admin_header.php');
 ?>
-    
+     <!-- BAR -->
+                <div class="bar-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <div class="title-bar">
+                                    <h1> Просмотр заказа <? echo $order_to_view->idorders; ?> </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BAR -->
+
+
 
                 <!-- PRODUCT-OFFER -->
                 <div class="product_wrap">
@@ -10,95 +24,83 @@
                         <div class="row">
                             <div class="span12">
 
-                                <div id="check-accordion">
+                                <div class ="shopping-cart">
                                    
-                                        
+                                 
                                 
-                                    <h5><small> Заказ</small><a href="#">  Заполните поля </a></h5>
-
-                                    <div class=" clearfix">
+                
+                                    <ul class="title clearfix">
+                                        <li class="first"> ID  </li>
+                                        <li > Наименование товара  </li>
+                                        <li> Брэнд </li>
+                                        <li class="second"> Цена </li>
                                         
-                                        <form action="#" method="post" class="billing-form clearfix">
-                                            <fieldset>
-                                               <label>Введите e-mail адрес</label>
-                                                <input name="email" type="text" value="<?php if(isset($UsersData['email'])) echo $UsersData['email'];?>" placeholder="e-mail"><br/>
-                                             
-                                            </fieldset>
-                                            <fieldset>
-                                                <label>Фамилия</label>
-                                                <input name="second_name" type="text" value="<?php if(isset($UsersData['second_name'])) echo $UsersData['second_name'];?>"/>
-                                                <label>Отчество</label>
-                                                <input name="third_name" type="text" value="<?php if(isset($UsersData['third_name'])) echo $UsersData['third_name'];?>"/>
-                                            </fieldset>
+                                        <li class="last" >Количество</li>
+                                         
+                                        <!-- <li class="last">Удалить</li> -->
+                                    </ul>
 
-                                            <fieldset class="last">
-                                                <label> Имя</label>
-                                                <input name="name" type="text" value="<?php if(isset($UsersData['name'])) echo $UsersData['name'];?>"/>
-                                                    <label> Телефон</label>
-                                                <input name="phone" type="text" value="<?php if(isset($UsersData['phone'])) echo $UsersData['phone'];?>"/>
-                                             
-                                            </fieldset>
+                                    <?php  foreach ($products_of_orders_list as $product_ord) :
+                                        # code...
+                                     ?>
+                                    <ul class=" clearfix"  > 
+                                        <li class="first">
+                                            <figure>  <?php echo $product_ord->idproducts; ?>  </figure>
+                                        </li>
+                                        <li>  <?php echo $product_ord->name; ?></li>
+                                        <li> <?php echo $product_ord->brand; ?> </li>
+                                        <li class="second">
+                                            <h4> <? echo $product_ord->price; ?></h4>
+                                            <p><span> статус :</span>
+                                             <?php if($product_ord->status==1)
+                                             echo "товар доступен"; else echo "товар не доступен";?>                                                   
+                                            </p>
+                                          
+                                        </li>
+                                         <li class="last">  <?php echo $products_of_orders[$product_ord->idproducts]; ?></li><!--  цена товара -->
+                                         
+                                       
+                                        
+                                    </ul>
+                                    </br></br>
+                                <? endforeach; ?>
+                                  <ol class="rounded">
+                                      <li><p > ФИО клиента :</p></li>
+                                      <li><p > Телефон :</p></li>
+                                      <li><p > e-mail :</p></li>
+                                      <li><p > Дата заказа :</p></li>
+                                      <li><p > Комментарий клиента :</p></li>
+                                      <li><p > Статус заказа :</p></li>
+                                      <li><p > Способ оплаты :</p></li>
+                                      <li><p > Способ доставки :</p></li>
+                                    </ol>
 
-                                            <label> Адрес </label>
-                                            <input name="address" type="text" value="<?php if(isset($UsersData['address'])) echo $UsersData['address'];?>"/>  
-                                              <fieldset class="last">
-                                                <label>Способ оплаты</label>
-                                                
-                                                <select name="payment_method">
+                                    <ol class="rounded">
+                                  <li><p > <? echo $order_to_view->user_name; ?></p></li>
+                                  <li><p > <? echo $order_to_view->user_phone; ?></p></li>
+                                  <li><p > <? echo $order_to_view->email; ?></p></li>
+                                  <li><p > <? echo $order_to_view->datetime; ?></p></li>
+                                  <li><p > <? if ($order_to_view->user_comment) echo($order_to_view->user_comment); else echo "нет комментария" ?></p></li>
+                                  <?php foreach ($statues as $status) :
+                                        if ($status->idorder_status == $order_to_view->status): ?>
+                                              <li><p > <? echo $status->status; ?></p></li>
+                                        <? break;
+                                 endif;  endforeach; ?>
+                                 <?php foreach ($payment_method as $method) :
+                                        if ($method->idpayment_method == $order_to_view->payment_method): ?>
+                                              <li><p > <? echo $method->name; ?></p></li>
+                                        <? break;
+                                 endif;  endforeach; ?>
+                                 <?php foreach ($ship_method as $method) :
+                                        if ($method->idship_method == $order_to_view->ship_method): ?>
+                                              <li><p > <? echo $method->name; ?></p></li>
+                                        <? break;
+                                 endif;  endforeach; ?>
+                                
+                                </ol> </br></br>
 
-                                                <?php foreach ($payment_method as $method): ?>
-                                                    <option  <?php if(isset($UsersData['payment_method'])) if($method->idpayment_method == $UsersData['payment_method']) echo "selected"; ?>  value="<?php echo $method->idpayment_method; ?>"> <?php echo $method->name; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                                <label>Способ доставки </label>
-                                                <select name="ship_method">
-                                                <?php foreach ($ship_method as $method): ?>
-                                                    <option  <?php if(isset($UsersData['ship_method'])) if($method->idpayment_method == $UsersData['ship_method']) echo "selected"; ?>  value="<?php echo $method->idship_method; ?>"> <?php echo $method->name; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-    
-                                            </fieldset>
+                        
 
-                                             <label> Комментарий к заказу </label>
-                                                <textarea cols="70" rows="5" name='user_comment' ></textarea> 
-
-                                                 <div class="billing">
-                                            
-                                            <ul class="title">
-                                                <li> Наименование</li>
-                                                <li>Брэнд </li>
-                                                <li>Количество</li>
-                                                <li>Цена</li>
-                                                <li class="last">Общая </li>
-                                            </ul>
-                                            <?php  if($_SESSION['products']):
-                                            foreach ($our_products_in_cart as $prod_in_cart) :
-                                                # code...
-                                             ?>
-                                            <ul>
-                                                <li><?php echo $prod_in_cart->name; ?></li>
-                                                <li><?php echo $prod_in_cart->brand; ?></li>
-                                                <li><?php echo $_SESSION['products'][$prod_in_cart->idproducts]; ?></li>
-                                                <li><?php echo $prod_in_cart->price; ?></li>
-                                                
-                                                
-                                                <li class="last"><?php echo $prod_in_cart->price*$_SESSION['products'][$prod_in_cart->idproducts]; ?></li>
-                                            </ul>
-                                        <? endforeach; endif; ?>
-
-
-
-                                               
-                                            </div>
-                                              <input name="submit" type="submit" value="Оформить заказ" class="red-button">
-
-                                        </div>
-                                 
-
-
-                                        </form>
-                                    </div>
-                                 
                                     
                                 </div>
                             </div>
@@ -110,9 +112,8 @@
 
 
 
-    <?    include_once(ROOT.'/layout/footer.php');
+    <?    include_once(ROOT.'/layout/admin_footer.php');
                     ?>
-
     
         </body>
 </html>

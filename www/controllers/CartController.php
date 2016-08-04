@@ -29,7 +29,7 @@
 		{
 			$our_products_in_cart = array(); // его передадим по ссылке в методе SumOfPricesInCart он передается по ссылке в него закидывается инфа о товарах которые доабвил в корзину пользователь
 			$sum = Cart::SumOfPricesInCart($our_products_in_cart);
-
+			
 
 			require_once(ROOT.'/views/cart/index.php');
 			return true;

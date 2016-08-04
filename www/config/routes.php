@@ -33,7 +33,7 @@ return array(
 	'admin/products/delete/([0-9]+)' => 'adminProducts/delete/$1',
 	'admin/products' => 'adminProducts/index',// операция чтения 
 	// управление заказами
-	'admin/orders/view/([0-9]+)' => 'adminOrders/view',
+	'admin/orders/view/([0-9]+)' => 'adminOrders/view/$1',
 	'admin/orders/update/([0-9]+)' => 'adminOrders/update/$1',
 	'admin/orders/delete/([0-9]+)' => 'adminOrders/delete/$1',
 	'admin/orders' => 'adminOrders/index',
