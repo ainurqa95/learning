@@ -93,14 +93,14 @@ blockquote p {}
 .languages a.active{padding: 2px 5px 7.5px 5px; background: #f8f8f8; border: 1px solid #d9d9d9; border-bottom: 0px;box-shadow: 0px -1px 1px #d9d9d9;margin-top: 6px;}
 .header-top  { 
 	background: #f8f8f8 url("/template/images/header-shadow.png") bottom repeat-x; 
-	border: 0px solid red; 
+	border: 1px solid red; 
 	height: 85px; 
 	line-height: 75px;
  }
 .header-top .logo { 
 	line-height: 75px; 
 	width: 500px;
-	border: 0px solid blue;
+	border: 1px solid blue;
  }
 .logo a  { margin-right: 8px; display: inline-block; }
 .logo a img { vertical-align: middle; }
