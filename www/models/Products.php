@@ -183,6 +183,17 @@ class Products
 				
 				
 		}
+		public static function getProductsListByIds ($ids = array())// список товаров по массиву идентификаторов
+		{	
+				$what_in = 'idproducts';
+				$fields = array('idproducts','name','brand','price','status');
+				$products = ProductsTable::find_all_with_fields_where_in ($ids, $fields, $what_in);
+				return $products;
+
+				
+				
+				
+		}
 		
 
 	

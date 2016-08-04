@@ -94,10 +94,11 @@
 		$ship_method = ShipMethodTable::find(); // способы доставки для селекта во вьюхе
 		$payment_method = PaymentMethodTable::find();
 
-
-
-
-		
+		$products_of_orders = json_decode($order_to_view->products,true);
+		//print_r($products_of_orders);//  array ( [30] => 1 [15] => 2) 
+		//$products_of_orders_ids = array_keys($products_of_orders);
+		//print_r($products_of_orders); Array ( [0] => 30, [1] => 15 ) 
+		$products_of_orders_list = Products::getProductsListByIds($products_of_orders);
 
 
 		require_once(ROOT.'/views/admin_orders/view.php');
