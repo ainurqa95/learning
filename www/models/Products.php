@@ -194,6 +194,23 @@ class Products
 				
 				
 		}
+		public static function getImageByID ($idproducts)// список товаров по массиву идентификаторов
+		{	
+				$noImage = 'no-image.jpg';
+				$path = "/uploads/images/products/";
+				 // Путь к изображению товара
+				$path_to_image = $path.$idproducts.'jpeg';
+			//	print_r($path_to_image);
+				 if (file_exists($_SERVER['DOCUMENT_ROOT'].$path_to_image)) {
+           		 // Если изображение для товара существует
+          		  // Возвращаем путь изображения товара
+            	return $path_to_image;
+       			 }
+
+				 // иначе Возвращаем путь изображения-пустышки
+				return $path.$noImage;
+				
+		}
 		
 
 	

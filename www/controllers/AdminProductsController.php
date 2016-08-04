@@ -40,6 +40,9 @@
 
 
 		}
+		 /**
+     * Action для страницы "Редактировать товар"
+     */
 		public function actionUpdate ($idproducts)
 		{	
 	   
@@ -64,26 +67,19 @@
    		 	if(!$error){
 
 			Products::UpdateProduct($UsersData,$idproducts); // добавляем в бд  товар и запоминем вго новый id
-			/*if($last_insert){// если запись добавлена
+			
 					if(is_uploaded_file($_FILES["image"]["tmp_name"])){// загрузилось ли через форму изображение
-
-						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT']. "/uploads/images");
+						  // Если загружалось, переместим его в нужную папке, дадим новое имя
+						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/uploads/images/products/{$last_insert_id}.jpg");
 
 					}
 
-
-
-				}
-				*/
 				header("Location: /admin/products/ "); 
 
 			}
-
-
-
-
-
 		}
+
+		
 
 		require_once(ROOT.'/views/admin_products/update.php');
 		
@@ -113,18 +109,19 @@
 			User::CheckIsFillFields ($_POST,$UsersData,$errors, $error, $fields);
    		 
    		 	if(!$error){
-			$last_insert = Products::AddProduct($UsersData); // добавляем в бд  товар и запоминем вго новый id
-			/*if($last_insert){// если запись добавлена
+			$last_insert_id = Products::AddProduct($UsersData); // добавляем в бд  товар и запоминем вго новый id
+			if($last_insert_id){// если запись добавлена
+					//print_r($_FILES["image"]);
 					if(is_uploaded_file($_FILES["image"]["tmp_name"])){// загрузилось ли через форму изображение
-
-						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT']. "/uploads/images");
+						  // Если загружалось, переместим его в нужную папке, дадим новое имя
+						move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/uploads/images/products/{$last_insert_id}.jpg");
 
 					}
 
 
 
 				}
-				*/
+				  // Перенаправляем пользователя на страницу управлениями товарами
 				header("Location: /admin/products/ "); 
 
 			}

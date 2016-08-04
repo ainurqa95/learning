@@ -91,6 +91,7 @@
                                                 </select><br/> 
 
                                                      <label> Изображение товара </label>
+                                                     <img src="<?php echo Products::getImageByID($product_to_update->idproducts); ?>">
                                                 <input type="file" name="image" placeholder="" value="">
                                             
                                                
