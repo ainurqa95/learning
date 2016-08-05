@@ -75,7 +75,7 @@
 
                             <div class="span5">
                                 <div class="logo">
-                                    <a href="/"><img src="/template/images/logoles.png" alt=""></a>
+                                    <a href="/"><img src="/template/images/logo2.png" alt=""></a>
                                     <h1><a href="/"> <span>Садовая техника, бензоинструмент,строительное оборудование </span>  </a></h1>
                                 </div>
                             </div>

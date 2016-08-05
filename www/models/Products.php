@@ -41,18 +41,14 @@ class Products
 
 		$result = $db->query('SELECT *
 			FROM brands ORDER BY idbrands ASC LIMIT ' . $count);
-		  //$result = $db->query('SELECT id, name, price, image, is_new FROM product '
-           //     . 'WHERE status = "1"'
-             //   . 'ORDER BY id DESC '                
-             //  . 'LIMIT ' . $count);
-		//idproducts, name,price,characteristic,description,is_new,is_recommended,second_category_idsecond_cat,second_category_main_category_idmain_cat
+	
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		$brandsList = array();
 		$i=0;
 		while($row = $result->fetch()) {
 			$brandsList[$i]['idbrands'] = $row['idbrands'];
 			$brandsList[$i]['name'] = $row['name'];
-			$brandsList[$i]['image'] = $row['image'];
+			
 		
 			$i++;
 		}
@@ -81,7 +77,6 @@ class Products
 			$productList[$i]['price'] = $row['price'];
 			$productList[$i]['characteristic'] = $row['description'];
 			$productList[$i]['is_new'] = $row['is_new'];
-			$productList[$i]['image'] = $row['image'];
 			$productList[$i]['is_recommended'] = $row['is_recommended'];
 			$productList[$i]['second_category_idsecond_cat'] = $row['second_category_idsecond_cat'];
 			$productList[$i]['brand'] = $row['brand'];
@@ -123,7 +118,7 @@ class Products
 		public static function getProductForSlider ($count = self::SHOW_BY_DEFAULT_Slider )// берем продукцию для слайдера главной страницы
 		{	
 				
-				$fields = array('idproducts', 'name', 'image','skidka','brand');
+				$fields = array('idproducts', 'name','skidka','brand','price');
 				$params = array('is_recommended' => 1 );
 				$product = ProductsTable::find_all_with_fields($params,$fields, 0, $count);
 						
@@ -194,16 +189,33 @@ class Products
 				
 				
 		}
-		public static function getImageByID ($idproducts)// список товаров по массиву идентификаторов
+		public static function getImageByID ($idproducts, $size = 2 )// список товаров по массиву идентификаторов
 		{	
+
 				$noImage = 'no-image.jpg';
-				$path = "/uploads/images/products/";
+				$path = "/uploads/images/products";
 				 // Путь к изображению товара
-				$path_to_image = $path.$idproducts.'jpeg';
-			//	print_r($path_to_image);
+				switch ($size) {
+					case 1:
+						$path = $path."/big/";
+						break;
+					case 2:
+						$path = $path."/middle/";
+						break;
+					case 3:
+						$path = $path."/small/";
+						break;	
+
+					default:
+						$path = $path."/middle/";
+						break;
+				}
+				$path_to_image = $path.$idproducts.'.jpg';
+				
 				 if (file_exists($_SERVER['DOCUMENT_ROOT'].$path_to_image)) {
            		 // Если изображение для товара существует
           		  // Возвращаем путь изображения товара
+
             	return $path_to_image;
        			 }
 
@@ -211,6 +223,7 @@ class Products
 				return $path.$noImage;
 				
 		}
+	
 		
 
 	
