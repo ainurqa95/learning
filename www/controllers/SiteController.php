@@ -14,6 +14,7 @@
 		$brandsList = Products::getBrands(6);
 		$latestProducts = Products::getlatestProducts(6);
 		$sliderProducts = Products::getProductForSlider(4);
+	
 		//$
 		//print_r($sliderProducts);
 

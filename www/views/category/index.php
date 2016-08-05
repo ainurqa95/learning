@@ -66,8 +66,8 @@
                                                 <h4> <?php echo $product['name']; ?></h4>
                                                 <div class="icon">
                                                     <a href="/cart/add/<?php echo $product['idproducts']; ?>" data-id="<?php echo $product['idproducts'];?>"  class="one_tooltip" title="Add to wish list" id="add-to-cart"></a>
-                                                    <a href="/cart/add/<?php echo $product['idproducts']; ?>" class="two tooltip " title="Add to cart"  data-id="<?php echo $product['idproducts'];?>"> </a>
-                                                    <a href="#" class="three tooltip" title="Add to compare"></a>
+                                                   
+                                                     <a href="/products/<?php echo $product['idproducts'];?>" class="three tooltip" title="Add to compare"></a>
                                                 </div>
                                             </div>
                                         </div>

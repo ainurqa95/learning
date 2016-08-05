@@ -16,10 +16,11 @@
                                 
                                     <?php foreach ($sliderProducts as $slider) : ?>
                                              <div class="slides">
-                                        <a href="/products/<?php echo $slider->idproducts;?>"><img src="http://placehold.it/870x373" alt=""></a>
+                                                    <? $path = Products::getImageByID($slider->idproducts,1); ?>
+                                        <a href="/products/<?php echo $slider->idproducts;?>"><img src='<?php echo $path;?>' alt="<?php echo $slider->name; ?>"></a><!-- 870x373 -->
                                         <div class="overlay">
                                             <h1> <?php echo $slider->name; ?></h1>
-                                            <p><span><?php echo $slider->skidka; ?>%</span> Скидка <br/> Brand: <span> <?php echo $slider->brand; ?>  </span> </p>
+                                            <p><span><?php echo $slider->price; ?>%</span> Цена <br/> Brand: <span> <?php echo $slider->brand; ?>  </span> </p>
                                         </div>
                                     </div>   
 
@@ -37,18 +38,18 @@
                             <div class="span3">
                                 <div class="offers">
                                     <figure>
-                                        <a href="#"><img src="http://placehold.it/270x171" alt=""></a>
+                                        <a href="/products/19"><img src="/uploads/images/products/big/19.jpg" alt="Культиватор Caiman ELITE 60S D2"></a>
                                         <div class="overlay">
-                                            <h1>SUMMER<span> COLLECTION 35% OFF</span> <small>  - Limited Offer</small></h1>
+                                            <h1> Культиватор Caiman ELITE 60S D2<span> Скидка 10% </span> <small>  Ограниченное предложение </small></h1>
                                         </div>
                                     </figure>
                                 </div>
 
                                 <div class="offers">
-                                    <figure>
-                                        <a href="#"><img src="http://placehold.it/270x171" alt=""></a>
+                                     <figure>
+                                        <a href="/products/18"><img src="/uploads/images/products/big/18.jpg" alt="Культиватор Caiman ELITE 60S D2"></a>
                                         <div class="overlay">
-                                            <h1>SUMMER<span> COLLECTION 35% OFF</span> <small>  - Limited Offer</small></h1>
+                                            <h1> Культиватор Craftsman 29932<span> Скидка 10% </span> <small>  Ограниченное предложение </small></h1>
                                         </div>
                                     </figure>
                                 </div>
@@ -64,7 +65,7 @@
                     <div class="container">
                         <div class="row heading-wrap">
                             <div class="span12 heading">
-                                <h2>Featured Products <span></span></h2>
+                                <h2> Рекомендуемые товары <span></span></h2>
                             </div>
                         </div>
                         <div class="row">
@@ -75,20 +76,23 @@
                             <div class="span3 product">
 
                                 <div>
-                                    <figure>
-                                        <a href="/"><img src="http://placehold.it/270x186" alt=""></a>
+                                    <figure> <?   $path = Products::getImageByID($lastProd['idproducts'],1); ?> 
+                                        <a href="/products/<?php echo $lastProd['second_category_main_category_idmain_cat'];?>"><img src="<? echo $path; ?>" alt="<?echo  $lastProd['name'];?>"></a>
                                         <div class="overlay">
                                             
-                                            <a href="/category/<?php echo $lastProd['second_category_idsecond_cat'];?>/<?php echo $lastProd['second_category_main_category_idmain_cat'];?>" class="link"></a>
+                                            <a href="/products/<?php echo $lastProd['second_category_main_category_idmain_cat'];?>" class="link"></a>
                                         </div>
                                     </figure>
                                     <div class="detail">
                                         <span><?php echo $lastProd['price']; ?></span>
                                         <h4><?php echo $lastProd['name']; ?></h4>
                                          <div class="icon">
-                                                    <a href="/cart/add/<?php echo $lastProd['idproducts']; ?>" class="one tooltip" title="Add to wish list"></a>
-                                                    <a href="/cart/add/<?php echo $lastProd['idproducts']; ?>" class="two tooltip " title="Add to cart"></a>
-                                                    <a href="#" class="three tooltip" title="Add to compare"></a>
+                                          <a href="/cart/add/<?php echo $lastProd['idproducts']; ?>" data-id="<?php echo $lastProd['idproducts'];?>"  class="one_tooltip" title="Add to wish list" id="add-to-cart"></a>
+                                                    
+                                                    <a href="/products/<?php echo $lastProd['idproducts'];?>" class="three tooltip" title="Add to compare"></a>
+
+
+                                                   
                                                 </div>
                                     </div>
                                 </div>
