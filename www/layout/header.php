@@ -20,7 +20,7 @@
 				<meta name="viewport" content="width=device-width" />
 				
 				<!-- Title -->
-				<title>Max Shop</title>
+				<title> Лес Парк Сад</title>
 
                 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,600,800' rel='stylesheet' type='text/css'>
                 <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@
                 <link rel="stylesheet" href="/template/style.css">
 				
 				<!-- favicon -->
-				<link rel="shortcut icon" href="/template/images/favicon.jpg">
+				<link rel="shortcut icon" href="/template/images/lopatka.jpg">
 
             <!-- Include the HTML5 shiv print polyfill for Internet Explorer browsers 8 and below -->
             <!--[if lt IE 10]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
@@ -47,9 +47,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="pric-icon span2">
-                                <a href="#" class="active">&#x20ac;</a>
-                                <a href="#">&#xa3;</a>
-                                <a href="#">&#36;</a>
+    
                             </div>
 
                             <div class="span10 right">
@@ -67,10 +65,9 @@
                                 </div>
 
                                 <div class="languages">
-                                    <a href="#" class="english active"><img src="/template/images/english.png" alt=""></a>
-                                    <a href="#" class="german"><img src="/template/images/german.png" alt=""></a>
-                                    <a href="#" class="japan"><img src="/template/images/japan.png" alt=""></a>
-                                    <a href="#" class="turkish"><img src="/template/images/turkish.png" alt=""></a>
+                                    <a href="/" class="english active"><img src="/template/images/russia.png" alt=""></a>
+                                    <a href="/" class="english active"><img src="/template/images/tatarstan.jpg" alt=""></a>
+          
                                 </div>
                             </div>
                         </div>
@@ -83,7 +80,7 @@
 
                             <div class="span5">
                                 <div class="logo">
-                                    <a href="/"><img src="/template/images/logo.png" alt=""></a>
+                                    <a href="/"><img src="/template/images/logo2.png" alt=""></a>
                                     <h1><a href="/"> <span>Садовая техника, бензоинструмент,строительное оборудование </span>  </a></h1>
                                 </div>
                             </div>
