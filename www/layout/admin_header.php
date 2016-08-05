@@ -20,7 +20,7 @@
 				<meta name="viewport" content="width=device-width" />
 				
 				<!-- Title -->
-				<title>Max Shop</title>
+				<title> Лес Парк Сад</title>
 
                 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,600,800' rel='stylesheet' type='text/css'>
                 <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@
                 <link rel="stylesheet" href="/template/style.css">
 				
 				<!-- favicon -->
-				<link rel="shortcut icon" href="/template/images/favicon.jpg">
+				<link rel="shortcut icon" href="/template/images/lopatka.jpg">
 
             <!-- Include the HTML5 shiv print polyfill for Internet Explorer browsers 8 and below -->
             <!--[if lt IE 10]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
@@ -75,7 +75,7 @@
 
                             <div class="span5">
                                 <div class="logo">
-                                    <a href="/"><img src="/template/images/logo.png" alt=""></a>
+                                    <a href="/"><img src="/template/images/logoles.png" alt=""></a>
                                     <h1><a href="/"> <span>Садовая техника, бензоинструмент,строительное оборудование </span>  </a></h1>
                                 </div>
                             </div>
