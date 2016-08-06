@@ -8,7 +8,7 @@
 			// Корзину в сессии храним как array ( [1] => 3, [4] => 4) где ключ это idproducts значение количество товара
 			// 
 
-			//echo "hellp";
+		
 			$refferer = $_SERVER['HTTP_REFERER'];// смотрим с какой страницы пришел пользователь перенаправляем его туда же
 			header( "Location: $refferer");
 			//return true;

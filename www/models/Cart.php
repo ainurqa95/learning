@@ -25,6 +25,7 @@ class Cart
 
 
 		}
+    //print_r($_SESSION);
 		$_SESSION['products'] = $arr_product;
 		return self::CountOfItemsInCart(); // еще и возвращаем количество товара
 		//используйте $this->member для нестатического свойства, а self::$member - для статического.
@@ -49,10 +50,11 @@ class Cart
    {
    		if(isset($_SESSION['products'])){
    			$sum = 0;
-
-   			$fields = array('idproducts','name','price','image','brand','second_category_idsecond_cat', 'second_category_main_category_idmain_cat'); // ч
+       
+   			$fields = array('idproducts','name','price','brand','second_category_idsecond_cat', 'second_category_main_category_idmain_cat'); // ч
    			$where_in = 'idproducts'; // там будет запрос where in idproducts (, , ,)
    			 $our_products_in_cart =ProductsTable::find_all_with_fields_where_in($_SESSION['products'],$fields,$where_in); // вытаскиваем все продукты из бд, которые находятся у пользовтеля в корзине
+    
    			foreach ($our_products_in_cart as  $product) {
    				$sum += $product->price * $_SESSION['products'][$product->idproducts]; // умножаем цену товара на количество заказанного товара
 
